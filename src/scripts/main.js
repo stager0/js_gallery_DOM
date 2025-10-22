@@ -10,6 +10,10 @@ imgsUl.addEventListener('click', (currEvent) => {
   const clickedA = currEvent.target.closest('a');
   const currentImg = clickedA.querySelector('img');
 
+  if (!clickedA) {
+    return;
+  }
+
   largeImg.src = clickedA.href;
   largeImg.alt = `main image ${currentImg.alt}`;
 });
