@@ -2,16 +2,14 @@
 
 const largeImg = document.querySelector('.gallery__large-img');
 
-const allImgs = document.querySelectorAll('.list-item__link');
+const imgsUl = document.querySelector('.gallery__list');
 
-allImgs.forEach((img) => {
-  img.addEventListener('click', (currEvent) => {
-    currEvent.preventDefault();
+imgsUl.addEventListener('click', (currEvent) => {
+  currEvent.preventDefault();
 
-    const currentA = currEvent.currentTarget;
-    const currentImg = currentA.querySelector('img');
+  const clickedA = currEvent.target.closest('a');
+  const currentImg = clickedA.querySelector('img');
 
-    largeImg.src = currentA.href;
-    largeImg.alt = `main image ${currentImg.alt}`;
-  });
+  largeImg.src = clickedA.href;
+  largeImg.alt = `main image ${currentImg.alt}`;
 });
